@@ -1,0 +1,7 @@
+{
+    "autoload": {
+        "files": [
+            "app/functions/pages.php"
+        ]
+    }
+}
