@@ -7,4 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '0c48edfd83033889f779790f8f59dd48' => $baseDir . '/app/functions/pages.php',
+    '08553373174aed5b2079e6334c2d2257' => $baseDir . '/app/functions/custom.php',
+    '06e2cc845cd457b9c47e81e7c59d160b' => $baseDir . '/app/functions/flash.php',
+    '65c0c55b3706b128c0fd18b53f51385b' => $baseDir . '/app/functions/database.php',
 );

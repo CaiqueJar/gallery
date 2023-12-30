@@ -8,6 +8,9 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
 {
     public static $files = array (
         '0c48edfd83033889f779790f8f59dd48' => __DIR__ . '/../..' . '/app/functions/pages.php',
+        '08553373174aed5b2079e6334c2d2257' => __DIR__ . '/../..' . '/app/functions/custom.php',
+        '06e2cc845cd457b9c47e81e7c59d160b' => __DIR__ . '/../..' . '/app/functions/flash.php',
+        '65c0c55b3706b128c0fd18b53f51385b' => __DIR__ . '/../..' . '/app/functions/database.php',
     );
 
     public static $classMap = array (

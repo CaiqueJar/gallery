@@ -1,7 +1,10 @@
 {
     "autoload": {
         "files": [
-            "app/functions/pages.php"
+            "app/functions/pages.php",
+            "app/functions/custom.php",
+            "app/functions/flash.php",
+            "app/functions/database.php"
         ]
     }
 }

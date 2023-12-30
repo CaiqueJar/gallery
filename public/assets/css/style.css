@@ -7,6 +7,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: #f7f7f7;
+}
 .content {
     max-width: 1600px;
     width: 100%;
@@ -29,9 +32,16 @@ header .wrapper-header {
     padding: 4px 8px;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {
+    filter: brightness(.8);
 }
 .btn.btn-success {
     background-color: green;
+}
+.btn.btn-delete {
+    background-color: rgb(163, 21, 21);
 }
 footer .wrapper-footer {
     display: flex;
