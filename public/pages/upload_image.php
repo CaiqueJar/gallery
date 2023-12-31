@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="../assets/css/upload.css">
+<?= get('message') ?>
 <main>
     <div class="content">
         <div class="wrapper-upload">
             <form action="?page=image_submit" method="POST" class="upload" enctype="multipart/form-data">
+                <input type="text" class="img-name" name="name" id="name" placeholder="Digite o nome da imagem">
                 <div class="drag" id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
                     <i class="fa-solid fa-file-arrow-up"></i>
                     <p id="drag-text">Arraste e solte uma imagem</p>
@@ -10,7 +12,7 @@
                 <hr>
                 <div class="file">
                     <p>Ou encontre sua imagem no computador</p>
-                    <input type="file" name="images[]" id="image">
+                    <input type="file" name="images" id="image">
                 </div>
                 <button class="btn btn-success" type="submit">Enviar</button>
             </form>
@@ -39,8 +41,12 @@
         dragText.textContent = "Envie a imagem";
 
         const files = event.dataTransfer.files;
-
-        if (files.length > 0) {
+        if (files.length >= 2) {
+            alert('Só pode adicionar uma imagem por vez!');
+            handleDragLeave();
+            return;
+        }
+        if (files.length == 1) {
             handleFiles(files);
         }
     }
@@ -63,18 +69,13 @@
             newImage.appendChild(delImage);
 
             const uploadedImages = document.getElementById('uploaded-images');
+            uploadedImages.innerHTML = "";
             uploadedImages.appendChild(newImage);
 
-            const newInput = document.createElement('input');
-            newInput.type = 'file';
-            newInput.accept = 'image/*';
-            newInput.name = 'images[]';
-            newInput.id = "img-"+file.name;
-
+            const imgInput = document.getElementById('image');
             const newFileList = new DataTransfer();
             newFileList.items.add(file);
-            newInput.files = newFileList.files;
-            newInput.style.display = 'none';
+            imgInput.files = newFileList.files;
 
 
             const dropZone = document.getElementById('drop-zone');

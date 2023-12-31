@@ -67,3 +67,14 @@ footer .wrapper-footer .icons a {
 footer .wrapper-footer .copy {
     font-size: .8rem;
 }
+.alert {
+    border: #cb2323 1px solid;
+    border-radius: 10px;
+    padding: 16px 10px;
+    background: #ffbdbd;
+    color: #464646;
+    font-weight: 600;
+    position: fixed;
+    right: 16px;
+    bottom: 10px;
+}

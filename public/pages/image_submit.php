@@ -3,21 +3,30 @@
 $images = $_FILES['images'];
 $uploadFolder = dirname(__DIR__) . "\\uploads\\";
 
-if(!empty($images['tmp_name'] && array_filter($images['tmp_name']))) {
-    foreach($images['name'] as $key => $image) {
-        $uniqueName = uniqid('image_') . "_" . basename($image); // Example: image_5f82d1a3c4cd1_filename.jpg
-        $pathImage = $uploadFolder . $uniqueName;
+$name = $_POST['name'];
+$name = filter_var($name, FILTER_SANITIZE_STRING);
 
-        if (move_uploaded_file($_FILES["images"]["tmp_name"][$key], $pathImage)) {
-            create('images', ['image' => $uniqueName]);
-            flash('message', 'Imagens enviadas com sucesso!', 'success');
-            return redirect('home');
-        }
-        
-    }
+if(empty($images['tmp_name'])) {
+    flash('message', 'Nenhuma imagem foi anexada!', 'error');
+    return redirect('upload_image');
 }
-else {
-    echo "Nenhuma imagem foi anexada!";
+
+$checkIfExists = find('images', 'name', $name);
+
+if(isset($checkIfExists->id)) {
+    flash('message', 'Já existe uma imagem com este nome!', 'error');
+    return redirect('upload_image');
 }
+
+
+$uniqueName = uniqid('image_') . "_" . basename($image);
+$pathImage = $uploadFolder . $uniqueName;
+
+if (move_uploaded_file($_FILES["images"]["tmp_name"], $pathImage)) {
+    create('images', ['image' => $uniqueName, 'name' => $name]);
+    flash('message', 'Imagens enviadas com sucesso!', 'success');
+    return redirect('home');
+}
+
 
 ?>

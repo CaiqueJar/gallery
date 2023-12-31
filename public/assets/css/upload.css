@@ -15,6 +15,16 @@
     flex-direction: column;
     gap: 32px;
     width: fit-content;
+    position: relative;
+}
+.wrapper-upload .upload .img-name {
+    position: absolute;
+    top: -58px;
+    width: 100%;
+    left: 0;
+    border: #e7e7e7 2px solid;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 .wrapper-upload .upload .drag {
     text-align: center;
