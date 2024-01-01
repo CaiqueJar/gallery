@@ -1,12 +1,12 @@
 <?php
 
-$images = $_FILES['images'];
+$image = $_FILES['images'];
 $uploadFolder = dirname(__DIR__) . "\\uploads\\";
 
 $name = $_POST['name'];
 $name = filter_var($name, FILTER_SANITIZE_STRING);
 
-if(empty($images['tmp_name'])) {
+if(empty($image['tmp_name'])) {
     flash('message', 'Nenhuma imagem foi anexada!', 'error');
     return redirect('upload_image');
 }
@@ -19,7 +19,7 @@ if(isset($checkIfExists->id)) {
 }
 
 
-$uniqueName = uniqid('image_') . "_" . basename($image);
+$uniqueName = uniqid('image_') . "_" . $image['name'];
 $pathImage = $uploadFolder . $uniqueName;
 
 if (move_uploaded_file($_FILES["images"]["tmp_name"], $pathImage)) {

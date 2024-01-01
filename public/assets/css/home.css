@@ -7,6 +7,32 @@ main .title h1, main .title p {
 main .title h1 {
     font-weight: 600;
 }
+.search {
+    position: relative;
+}
+.search #result {
+    list-style: none;
+    background: #e7e7e7cc;
+    backdrop-filter: blur(2px);
+    box-shadow: 2px 2px 6px #0f0f0f;
+    position: absolute;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 6px;
+    z-index: 10;
+}
+.search #result a {
+    text-decoration: none;
+    color: #0f0f0f;
+    font-weight: 500;
+}
+.search #result a p {
+    padding: 8px;
+    border-radius: 6px;
+}
+.search #result a:hover p {
+    background-color: #f7f7f7;
+}
 .images {
     margin-top: 20px;
 }
@@ -39,10 +65,10 @@ main .title h1 {
     height: 86px;
     position: relative;
 }
-.list-format .list-img .img-container i {
+.img-container i {
     display: none;
 }
-.list-format .list-img .img-container:hover .overlay {
+.img-container:hover .overlay {
     background-color: #0f0f0f93;
     width: 100%;
     height: 100%;
@@ -50,7 +76,7 @@ main .title h1 {
     position: absolute;
     border-radius: 5px;
 }
-.list-format .list-img .img-container:hover i {
+.img-container:hover i {
     display: block;
     z-index: 5;
     font-size: 1rem;
@@ -69,6 +95,10 @@ main .title h1 {
 .list-format .list-img .list-text {
     width: 200px;
 }
+.list-format .list-img .list-text a {
+    color: #0f0f0f;
+    font-size: .8rem;
+}
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -78,18 +108,26 @@ main .title h1 {
     flex-basis: 30%;
     margin-bottom: 32px;
     box-shadow: 0 6px 13px #c3c3c3;
-    border-radius: 6px;
+    border-radius: 12px;
+}
+.cards .card .img-container {
+    width: 100%;
+    height: 280px;
+    position: relative;
+}
+.cards .card .img-container .overlay{
+    border-radius: 12px;
 }
 .cards .card img {
     width: 100%;
-    height: 280px;
-    border-radius: 4px 4px 0 0;
+    height: 100%;
+    border-radius: 12px 12px 0 0;
     object-fit: cover;
 }
 .cards .card .img-options {
     display: flex;
     justify-content: space-between;
-    padding: 6px;
+    padding: 18px 6px 6px 6px;
 }
 .cards .card .img-options .card-title {
     font-weight: 300;
@@ -118,7 +156,7 @@ main .title h1 {
 }
 .options .format {
     border: none;
-    background-color: none;
+    background: none;
     color: rgb(15, 15, 15);
     font-size: 1.2rem;
     cursor: pointer;
@@ -137,9 +175,9 @@ main .title h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+    background-color: #0f0f0fb6;
 }
 
 .modal-content {
@@ -147,37 +185,16 @@ main .title h1 {
     background-color: #fff;
     padding: 20px;
     max-width: 600px;
+    top: 30%;
     margin: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.close-modal {
+.modal-close {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
     cursor: pointer;
-}
-
-#modalImage {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-#modalCaption {
-    text-align: center;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Add transition effect to the modal content */
-.modal-content {
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Scale up the modal content when displayed */
-.modal-content.active {
-    transform: scale(1);
 }

@@ -1,0 +1,29 @@
+main .top {
+    margin: 20px 0;
+}
+main .top a {
+    color: rgb(15, 15, 15);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+main .wrapper-img {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    border-radius: 32px;
+    background: white;
+    box-shadow: 0 0 8px #b1b1b1;
+    margin-bottom: 40px;
+}
+main .wrapper-img > div {
+    flex-basis: 50%;
+}
+main .wrapper-img .img-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+main .wrapper-img .text {
+    color: rgb(15, 15, 15);
+}

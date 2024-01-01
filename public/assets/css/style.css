@@ -77,4 +77,13 @@ footer .wrapper-footer .copy {
     position: fixed;
     right: 16px;
     bottom: 10px;
+    z-index: 9999;
+}
+.alert.alert-danger {
+    border: #cb2323 1px solid;
+    background: #ffbdbd;
+}
+.alert.alert-success {
+    border: #23cb39 1px solid !important;
+    background: #bdffc0 !important;
 }

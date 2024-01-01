@@ -73,7 +73,16 @@ function find($table, $field, $value) {
 
     return $find->fetch();
 }
+function like($table, $field, $value) {
+    $pdo = connect();
 
+    $sql = "SELECT * FROM {$table} WHERE {$field} LIKE :value";
+    $find = $pdo->prepare($sql);
+    $find->bindValue(':value', "%{$value}%", PDO::PARAM_STR);
+    $find->execute();
+
+    return $find->fetchAll();
+}
 function delete($table, $field, $id) {
     $pdo = connect();
 

@@ -3,7 +3,7 @@
         <li>
             <div class="list-img">
                 <div class="img-container">
-                    <a href="">
+                    <a href="?page=image&id=<?= $image->id ?>">
                         <div class="overlay"></div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <img src="../uploads/<?= $image->image ?>" alt="">
@@ -14,7 +14,7 @@
                     <div class="actions">
                         <!-- <a href="#"><i class="fa-solid fa-share-nodes"></i></a> -->
                         <a href=""><i class="fa-solid fa-pen"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                        <a href="" class="del" data-id="<?= $image->id ?>"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
             </div>
