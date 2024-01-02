@@ -1,20 +1,38 @@
+<?php
+    $categories = all('categories');
+?>
 <link rel="stylesheet" href="../assets/css/upload.css">
 <?= get('message') ?>
 <main>
     <div class="content">
         <div class="wrapper-upload">
-            <form action="?page=image_submit" method="POST" class="upload" enctype="multipart/form-data">
-                <input type="text" class="img-name" name="name" id="name" placeholder="Digite o nome da imagem">
-                <div class="drag" id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
-                    <i class="fa-solid fa-file-arrow-up"></i>
-                    <p id="drag-text">Arraste e solte uma imagem</p>
+            <form action="?page=image_submit" method="POST" enctype="multipart/form-data">
+                <div class="inputs">
+                    <div class="input">
+                        <label for="name">Nome da imagem:</label>
+                        <input type="text" class="img-name" name="name" id="name" placeholder="Digite o nome da imagem">
+                    </div>
+                    <div class="input">
+                        <label for="id_category">Selecione uma categoria: </label>
+                        <select name="id_category" id="id_category">
+                            <?php foreach($categories as $category): ?>
+                                <option value="<?= $category->id ?>"><?= $category->category ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
-                <hr>
-                <div class="file">
-                    <p>Ou encontre sua imagem no computador</p>
-                    <input type="file" name="images" id="image">
+                <div class="drag-container">
+                    <div class="drag" id="drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                        <i class="fa-solid fa-file-arrow-up"></i>
+                        <p id="drag-text">Arraste e solte uma imagem</p>
+                    </div>
+                    <hr>
+                    <div class="file">
+                        <p>Ou encontre sua imagem no computador</p>
+                        <input type="file" name="images" id="image">
+                    </div>
+                    <button class="btn btn-success" type="submit">Enviar</button>
                 </div>
-                <button class="btn btn-success" type="submit">Enviar</button>
             </form>
             <ul class="uploaded-images" id="uploaded-images">
 

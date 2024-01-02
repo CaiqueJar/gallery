@@ -43,7 +43,7 @@
                                     <p class="card-title"><?= $image->name ?></p>
                                     <div class="actions">
                                         <!-- <a href="#"><i class="fa-solid fa-share-nodes"></i></a> -->
-                                        <a href=""><i class="fa-solid fa-pen"></i></a>
+                                        <a href="?page=update_image&id=<?= $image->id ?>"><i class="fa-solid fa-pen"></i></a>
                                         <a href="" class="del" data-id="<?= $image->id ?>"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 </div>

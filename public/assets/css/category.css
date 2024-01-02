@@ -1,0 +1,93 @@
+main .top {
+    margin: 20px 0;
+    color: #262626;
+}
+main .top hr {
+    margin-bottom: 12px;
+}
+main .top h1 {
+    margin: 12px 0;
+    font-weight: 600;
+}
+main .cards {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+main .cards .card {
+    padding: 12px;
+    background: white;
+    box-shadow: 0 0 6px #b7b7b7;
+    border-radius: 6px;
+}
+main .cards .card p.img-count {
+    font-size: .8rem;
+    color: #262626;
+    margin-bottom: 6px;
+}
+main .cards .card .img-container {
+    width: 200px;
+    height: 160px;
+}
+main .cards .card .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+main .cards .card .footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+main .cards .card .footer .actions a {
+    color: #262626;
+}
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f0f0fb6;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    top: 30%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modal-content .header {
+    border-bottom: #9a9a9a 1px solid;
+    padding-bottom: 6px;
+    font-weight: 500;
+}
+.modal-content .body {
+    margin: 16px 0;
+}
+.modal-content .inputs, .modal-content .inputs .input {
+    display: flex;
+    flex-direction: column;
+}
+.modal-content .inputs .input input {
+    border: #e7e7e7 2px solid;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

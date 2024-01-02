@@ -15,7 +15,11 @@
     <header>
         <div class="content">
             <div class="wrapper-header">
-                <span>Sistema de galeria</span>
+                <span class="logo"><a href="/">Sistema de galeria</a></span>
+                <ul>
+                    <li><a href="?page=categories">Categorias</a></li>
+                    <li><a href="?page=categories">Aleatório</a></li>
+                </ul>
             </div>
         </div>
     </header>
@@ -36,7 +40,7 @@
                     <a href="https://www.instagram.com/eu.dias__/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/caique-dias-de-melo-1b28221a6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
-                <p>Feito com muito <span style="color: #d94343;">❤</span> por Dias </p>
+                <p>Feito por Dias </p>
                 <div class="copy">
                     <i>Dias &#169; 2023</i>
                 </div>

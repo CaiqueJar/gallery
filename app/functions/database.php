@@ -83,6 +83,20 @@ function like($table, $field, $value) {
 
     return $find->fetchAll();
 }
+function counting($table, $where = null, $value = null) {
+    $pdo = connect();
+    
+    $sql = "SELECT id FROM {$table}";
+    
+    if($where !== null) {
+        $sql .= " WHERE {$where} = {$value}";
+    }
+   
+    $count = $pdo->prepare($sql);
+    $count->execute();
+
+    return $count->rowCount();
+}
 function delete($table, $field, $id) {
     $pdo = connect();
 
