@@ -49,10 +49,17 @@ function update($table, $fields, $where) {
     return $update->rowCount();
 }
 
-function all($table) {
+function all($table, $order = null) {
     $pdo = connect();
 
     $sql = "SELECT * FROM {$table}";
+    
+    if($order != null) {
+        if(strtoupper($order) == "ASC" || strtoupper($order) == "DESC") {
+            $sql .= " ORDER BY id {$order}";
+        }
+    }
+
     $list = $pdo->query($sql);
 
     $list->execute();
@@ -60,7 +67,7 @@ function all($table) {
     return $list->fetchAll();
 }
 
-function find($table, $field, $value) {
+function find($table, $field, $value, $fetch = null) {
     $pdo = connect();
 
     // $value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
@@ -70,6 +77,10 @@ function find($table, $field, $value) {
     $find = $pdo->prepare($sql);
     $find->bindValue($field, $value);
     $find->execute();
+
+    if($fetch == 'all') {
+        return $find->fetchAll();
+    }
 
     return $find->fetch();
 }

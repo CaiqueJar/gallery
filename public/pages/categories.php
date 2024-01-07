@@ -20,17 +20,19 @@
                         $count = counting('images', 'id_category', $category->id);
                     ?>
                     <div class="card">
-                        <p class="img-count"><i class="fa-solid fa-image"></i> <?= $count ?></p>
-                        <div class="img-container">
-                            <img src="../uploads/<?= $image ?>" alt="">
-                        </div>
-                        <div class="footer">
-                            <span style="font-weight: 500;"><?= $category->category ?></span>
-                            <div class="actions">
-                                <a href="?page=update_image&id=<?= $category->id ?>"><i class="fa-solid fa-pen"></i></a>
-                                <a href="" class="del" data-id="<?= $category->id ?>"><i class="fa-solid fa-trash"></i></a>
+                        <a href="?page=category_images&id=<?= $category->id ?>">
+                            <p class="img-count"><i class="fa-solid fa-image"></i> <?= $count ?></p>
+                            <div class="img-container">
+                                <img src="../uploads/<?= $image ?>" alt="">
                             </div>
-                        </div>
+                            <div class="footer">
+                                <span style="font-weight: 500;"><?= $category->category ?></span>
+                                <div class="actions">
+                                    <a href="?page=update_image&id=<?= $category->id ?>"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="" class="del" data-id="<?= $category->id ?>"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>

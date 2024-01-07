@@ -1,5 +1,18 @@
 <?php
-    $images = all('images', 'DESC');
+
+    if(!isset($_GET['id'])) {
+        return redirect('categories');
+    }
+
+    $category = $_GET['id'];
+    $category = filter_var($category, FILTER_SANITIZE_NUMBER_INT);
+
+    $category = find('categories', 'id', $category);
+    if(!isset($category->id)) {
+        return redirect('categories');
+    }
+
+    $images = find('images', 'id_category', $category->id, 'all');
 ?>
 <link rel="stylesheet" href="../assets/css/home.css">
 <?= get('message') ?>
@@ -7,24 +20,10 @@
     <div class="content">
         <div class="wrapper-main">
             <div class="title">
-                <h1>Galeria de imagens</h1>
+                <h1>Imagens da categoria: <?= $category->category ?></h1>
                 <hr>
-                <p>Seja bem vindo a sua galeria de imagens. Comece adicionando suas imagens para vê-las abaixo.</p>
-                <a href="?page=upload_image" class="btn btn-success">Enviar imagem</a>
             </div>
             <div class="images">
-                <div class="options">
-                    <div class="search">
-                        <input type="search" id="search" placeholder="Digite o nome da imagem" autocomplete="off">
-                        <ul id="result">
-
-                        </ul>
-                    </div>
-                    <div class="display-options">
-                        <button class="format" id="images"><i class="fa-solid fa-image"></i></button>
-                        <button class="format" id="list"><i class="fa-solid fa-list"></i></button>
-                    </div>
-                </div>
                 <div class="display-format" id="format">
                     <div class="cards">
                         <?php if(empty($images)): ?>
@@ -55,7 +54,6 @@
         </div>
     </div>
 </main>
-
 <!-- Delete modal -->
 <div class="modal modal-del">
     <div class="modal-content">

@@ -21,6 +21,10 @@ main .cards .card {
     box-shadow: 0 0 6px #b7b7b7;
     border-radius: 6px;
 }
+main .cards .card a {
+    color: #262626;
+    text-decoration: none;
+}
 main .cards .card p.img-count {
     font-size: .8rem;
     color: #262626;
