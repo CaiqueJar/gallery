@@ -95,3 +95,12 @@ main .cards .card .footer .actions a {
     font-size: 20px;
     cursor: pointer;
 }
+@media(max-width:840px) {
+    main .cards {
+        justify-content: space-between;
+    }
+    main .cards .card .img-container {
+        width: 126px;
+        height: 112px;
+    }
+}

@@ -17,8 +17,11 @@
             <div class="wrapper-header">
                 <span class="logo"><a href="/">Sistema de galeria</a></span>
                 <ul>
-                    <li><a href="?page=categories">Categorias</a></li>
-                    <li><a href="?page=categories">Aleatório</a></li>
+                    <div>
+                        <li><a href="?page=categories"><i class="fa-solid fa-folder"></i> <span> Categorias</span></a></li>
+                        <li><a href="?page=random"><i class="fa-solid fa-dice-three"></i> <span> Aleatório</span></a></li>
+                    </div>
+                    <li><a href="?page=upload_image"><i class="fa-solid fa-upload"></i> <span> Enviar</span></a></li>
                 </ul>
             </div>
         </div>

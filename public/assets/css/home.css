@@ -152,6 +152,7 @@ main .title h1 {
     padding: 6px 18px;
     border-radius: 20px;
     display: flex;
+    width: fit-content;
     gap: 18px;
 }
 .options .format {
@@ -197,4 +198,25 @@ main .title h1 {
     right: 10px;
     font-size: 20px;
     cursor: pointer;
+}
+@media(max-width:840px) {
+    .options {
+        flex-direction: column;
+    }
+    .cards {
+        justify-content: space-between;
+        gap: 0;
+    }
+    .cards .card {
+        flex-basis: 46%;
+    }
+    .cards .card .img-container {
+        height: 128px;
+    }
+    .list-format {
+        display: block;
+    }
+    .list-format li {
+        margin-bottom: 12px;
+    }
 }

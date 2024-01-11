@@ -31,3 +31,13 @@ main .wrapper-img .img-container img {
 main .wrapper-img .text {
     color: rgb(15, 15, 15);
 }
+main .wrapper-img .download a {
+    color: rgb(15, 15, 15);
+    text-decoration: none;
+    font-weight: 500;
+}
+@media(max-width: 840px) {
+    main .wrapper-img {
+        width: initial;
+    }
+}

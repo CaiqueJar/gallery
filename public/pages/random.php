@@ -1,8 +1,10 @@
 <?php
-    $id = $_GET['id'];
-    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
-    $image = find('images', 'id', $id);
+$images = all('images');
+$random = random_int(0, count($images)-1);
+
+$image = $images[$random];
+
 ?>
 <link rel="stylesheet" href="../assets/css/image.css">
 <main>
@@ -11,12 +13,6 @@
             <a href="?page=home" class="back"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="wrapper-img">
-            <div class="download">
-                <a href="?page=download_image&id=<?= $image->id ?>">
-                    <i class="fa-solid fa-download"></i>
-                    download
-                </a>
-            </div>
             <div class="img-container">
                 <img src="../uploads/<?= $image->image ?>" alt="">
             </div>
