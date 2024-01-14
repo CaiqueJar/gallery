@@ -21,6 +21,12 @@ if(isset($checkIfExists->id)) {
     return redirect('upload_image');
 }
 
+$allowedExtensions = ['jpg', 'png', 'webp', 'gif', 'jpeg'];
+$checkExtension = explode('.', $image['name']);
+if(!in_array(end($checkExtension), $allowedExtensions)) {
+    flash('message', 'Tipo de arquivo não permitido! Tente Jpg, png, webp...', 'error');
+    return redirect('upload_image');
+}
 
 $uniqueName = uniqid('image_') . "_" . $image['name'];
 $pathImage = $uploadFolder . $uniqueName;

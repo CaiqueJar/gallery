@@ -10,7 +10,7 @@
 <main>
     <div class="content">
         <div class="wrapper-upload">
-            <form action="?page=image_submit" method="POST" enctype="multipart/form-data">
+            <form action="?page=image_update" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $image->id ?>">
                 <div class="inputs">
                     <div class="input">

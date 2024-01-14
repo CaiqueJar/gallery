@@ -20,6 +20,12 @@ if($exists != false && $find->id != $exists->id) {
 
 $image = $_FILES['images'];
 
+$allowedExtensions = ['jpg', 'png', 'webp', 'gif', 'jpeg'];
+$checkExtension = explode('.', $image['name']);
+if(!in_array(end($checkExtension), $allowedExtensions)) {
+    flash('message', 'Tipo de arquivo não permitido! Tente Jpg, png, webp...', 'error');
+    return redirect('home');
+}
 
 if(file_exists($image['tmp_name'])) {
     unlink('uploads/'.$find->image);
