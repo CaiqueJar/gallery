@@ -5,7 +5,7 @@ require '../../bootstrap.php';
 $format = $_GET['format'];
 $format = filter_var($format, FILTER_SANITIZE_STRING);
 
-$images = all('images');
+$images = all('images', 'DESC');
 
 ob_start();
 if($format == 'images') {

@@ -28,7 +28,7 @@
                             <div class="footer">
                                 <span style="font-weight: 500;"><?= $category->category ?></span>
                                 <div class="actions">
-                                    <a href="?page=update_image&id=<?= $category->id ?>"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="" class="updt" data-id="<?= $category->id ?>" data-category="<?= $category->category ?>"><i class="fa-solid fa-pen"></i></a>
                                     <a href="" class="del" data-id="<?= $category->id ?>"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </div>
@@ -83,6 +83,30 @@
     </div>
 </div>
 
+<!-- Update modal -->
+<div class="modal modal-updt">
+    <div class="modal-content">
+        <form action="?page=update_category" method="POST">
+            <div class="header">
+                <span>Editar categoria?</span>
+                <span class="modal-close" id="close">X</span>
+            </div>
+            <div class="body">
+                <div class="inputs">
+                    <div class="input">
+                        <label for="category">Nome da categoria: </label>
+                        <input type="text" name="category" id="category-updt">
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <input type="hidden" name="id" id="updtId">
+                <button class="btn btn-success" type="submit">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     function modalCreate() {
@@ -108,9 +132,21 @@
             $('#delId').val('');
         });
     }
+    function modalUpdate() {
+        $('.updt').on('click', function(e) {
+            e.preventDefault();
+            let id = $(this).attr('data-id');
+            let category = $(this).attr('data-category')
+            
+            $('.modal-updt').css('display', 'block');
+            $('#updtId').val(id);
+            $('#category-updt').val(category);
+        })
+    }
     $(document).ready(function() {
 
         modalCreate();
         modalDelete();
+        modalUpdate();
     });
 </script>
